@@ -1,10 +1,10 @@
 
-import React, { useState, useEffect } from 'react';
-import { Layout } from './components/Layout';
-import { Home } from './pages/Home';
-import { Packages } from './pages/Packages';
-import { Login } from './pages/Login';
-import { Page } from './types';
+import React, { useState, useEffect } from 'https://esm.sh/react@19.0.0';
+import { Layout } from './components/Layout.tsx';
+import { Home } from './pages/Home.tsx';
+import { Packages } from './pages/Packages.tsx';
+import { Login } from './pages/Login.tsx';
+import { Page } from './types.ts';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>(Page.Home);
@@ -40,9 +40,8 @@ const App: React.FC = () => {
     <Layout currentPage={currentPage} setCurrentPage={setCurrentPage}>
       {renderPage()}
 
-      {/* Cookie Consent Banner */}
       {showCookieConsent && (
-        <div className="fixed bottom-0 left-0 right-0 z-[100] bg-white border-t-4 border-blossom shadow-2xl p-6 md:p-8 animate-bounce-in">
+        <div className="fixed bottom-0 left-0 right-0 z-[100] bg-white border-t-4 border-blossom shadow-2xl p-6 md:p-8 animate-fade-in">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center text-left">
               <div className="hidden md:block bg-pastelBlue p-3 rounded-full mr-4 text-blossom">

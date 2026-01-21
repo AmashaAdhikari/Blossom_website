@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { Page } from '../types';
+import React, { useState } from 'https://esm.sh/react@19.0.0';
+import { Page } from '../types.ts';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,7 +13,6 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPage, setCurren
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
@@ -24,7 +23,6 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPage, setCurren
               <span className="text-2xl font-bold text-blossom tracking-tight">Blossom</span>
             </div>
 
-            {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               <button onClick={() => setCurrentPage(Page.Home)} className={`font-medium ${currentPage === Page.Home ? 'text-blossom' : 'text-gray-600 hover:text-blossom'}`}>Home</button>
               <button onClick={() => setCurrentPage(Page.Packages)} className={`font-medium ${currentPage === Page.Packages ? 'text-blossom' : 'text-gray-600 hover:text-blossom'}`}>Care Packages</button>
@@ -33,7 +31,6 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPage, setCurren
               <button onClick={() => setCurrentPage(Page.SignUp)} className="px-5 py-2 bg-blossom text-white rounded-full hover:bg-opacity-90 transition-all font-semibold shadow-md">Sign Up</button>
             </div>
 
-            {/* Mobile Toggle */}
             <div className="md:hidden">
               <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-gray-600 focus:outline-none">
                 <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
@@ -42,7 +39,6 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPage, setCurren
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-b border-gray-100 py-4 px-4 space-y-4 shadow-xl">
             <button onClick={() => {setCurrentPage(Page.Home); setMobileMenuOpen(false);}} className="block w-full text-left font-medium text-gray-700">Home</button>
@@ -60,7 +56,6 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPage, setCurren
         {children}
       </main>
 
-      {/* Footer */}
       <footer className="bg-white border-t border-gray-100 pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
@@ -72,43 +67,12 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPage, setCurren
                 <span className="text-xl font-bold text-blossom">Blossom</span>
               </div>
               <p className="text-gray-500 mb-4 italic">"Nurturing Beyond Care"</p>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-blossom transition-colors"><i className="fab fa-facebook-f"></i></a>
-                <a href="#" className="text-gray-400 hover:text-blossom transition-colors"><i className="fab fa-instagram"></i></a>
-                <a href="#" className="text-gray-400 hover:text-blossom transition-colors"><i className="fab fa-twitter"></i></a>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-bold text-gray-900 mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li><button onClick={() => setCurrentPage(Page.Home)} className="hover:text-blossom">Home</button></li>
-                <li><button onClick={() => setCurrentPage(Page.Packages)} className="hover:text-blossom">Care Packages</button></li>
-                <li><a href="#" className="hover:text-blossom">Our Philosophy</a></li>
-                <li><a href="#" className="hover:text-blossom">Enrollment FAQ</a></li>
-              </ul>
             </div>
             <div>
               <h4 className="font-bold text-gray-900 mb-4">Contact Us</h4>
               <ul className="space-y-2 text-gray-600 text-sm">
                 <li><i className="fas fa-map-marker-alt text-blossom mr-2"></i> Near Colombo, Sri Lanka</li>
-                <li><i className="fas fa-phone text-blossom mr-2"></i> +94 11 123 4567</li>
-                <li><i className="fas fa-envelope text-blossom mr-2"></i> hello@blossomcare.com</li>
               </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-gray-900 mb-4">Newsletter</h4>
-              <p className="text-sm text-gray-500 mb-4">Stay updated with Blossom news and parenting tips.</p>
-              <div className="flex">
-                <input type="email" placeholder="Your email" className="bg-gray-50 border border-gray-200 rounded-l-full px-4 py-2 w-full focus:outline-none focus:border-blossom" />
-                <button className="bg-blossom text-white px-4 py-2 rounded-r-full hover:bg-opacity-90"><i className="fas fa-paper-plane"></i></button>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-            <p>&copy; 2024 Blossom Daycare. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-blossom">Privacy Policy</a>
-              <a href="#" className="hover:text-blossom">Terms of Service</a>
             </div>
           </div>
         </div>
